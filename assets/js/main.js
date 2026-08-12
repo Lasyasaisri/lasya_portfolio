@@ -27,15 +27,22 @@ function headerShadow() {
 
   }
 }
+const typedTextElement = document.querySelector(".typedText");
+const useStaticHeroTitle = window.matchMedia("(max-width: 820px)").matches;
 
-
-var typingEffect = new Typed(".typedText",{
-  strings : ["Software Consulting Engineer", "Network Automation Engineer", "Java Full Stack Developer"],
-  loop : true,
-  typeSpeed : 100, 
-  backSpeed : 80,
-  backDelay : 1000
-})
+if (typedTextElement) {
+  if (useStaticHeroTitle) {
+    typedTextElement.textContent = "Software Consulting Engineer";
+  } else {
+    new Typed(".typedText",{
+      strings : ["Software Consulting Engineer", "Network Automation Engineer", "Java Full Stack Developer"],
+      loop : true,
+      typeSpeed : 100,
+      backSpeed : 80,
+      backDelay : 1000
+    })
+  }
+}
 
 
 const sr = ScrollReveal({
